@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-expanded="false">
+        Select table to start
+      </button>
+      <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+        <li><a class="dropdown-item" asp-controller="Employees" asp-action="Index">Employees</a></li>
+        <li><a class="dropdown-item" asp-controller="Positions" asp-action="Index">Positions</a></li>
+        <li><a class="dropdown-item" asp-controller="ClientCompanies" asp-action="Index">Client Companies</a></li>
+        <li><a class="dropdown-item" asp-controller="ErpSystems" asp-action="Index">ERP systems</a></li>
+        <li><a class="dropdown-item" asp-controller="Issues" asp-action="Index">Issues</a></li>
+        <li><a class="dropdown-item" asp-controller="Tasks" asp-action="Index">Tasks</a></li>
+        <li><a class="dropdown-item" asp-controller="Meetings" asp-action="Index">Meetings</a></li>
+        <li><a class="dropdown-item" asp-controller="EmployeesAtMeeting" asp-action="Index">EmployeesAtMeeting</a></li>
+      </ul>
+    </div>
+</div>

@@ -1,0 +1,65 @@
+﻿@model List<DAL.Model.CErpsystem>
+
+@{
+    ViewBag.Title = "ERP systems";
+    Layout = "_Layout";
+}
+
+<h2>ERP systems</h2>
+
+<p class="text-right">    
+    @Html.ActionLink("Create New", "Create")    
+</p>    
+ 
+<table class="table">    
+    <tr>    
+        <th>    
+            Id    
+        </th>    
+        <th>    
+            Name    
+        </th>
+        <th>    
+            Current version    
+        </th>
+        <th>    
+            Client    
+        </th>
+        <th></th>    
+    </tr>
+
+    @if (Model != null && Model.Any())    
+    {    
+        foreach (var item in Model)    
+        {    
+            <tr>    
+                <td>    
+                    @Html.DisplayFor(modelItem => item.Id)    
+                </td>    
+                <td>    
+                    @Html.DisplayFor(modelItem => item.Name)    
+                </td>
+                <td>    
+                    @Html.DisplayFor(modelItem => item.CurrentVersion)    
+                </td>    
+                <td>    
+                    @Html.DisplayFor(modelItem => item.Client.Name)    
+                </td>
+                <td>    
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id })    
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })    
+                </td>    
+            </tr>    
+        }    
+    }    
+    else    
+    {    
+        <td colspan="4" class="text-center"><b>No Data Available . Please Add Data By CLick On Create Button</b></td>    
+    }    
+</table>   
+@if (ViewBag.Message != null)    
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.Message    
+    </div>    
+}

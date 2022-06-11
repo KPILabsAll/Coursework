@@ -1,0 +1,71 @@
+﻿@model List<DAL.Model.CIssue>
+
+@{
+    ViewBag.Title = "Issues";
+    Layout = "_Layout";
+}
+
+<h2>Issues</h2>
+
+<p class="text-right">    
+    @Html.ActionLink("Create New", "Create")    
+</p>    
+ 
+<table class="table">    
+    <tr>    
+        <th>    
+            Id    
+        </th>    
+        <th>    
+            Description    
+        </th>
+        <th>    
+            Is accepted    
+        </th>
+        <th>    
+            Is fixed    
+        </th>
+        <th>    
+            System    
+        </th>
+        <th></th>    
+    </tr>
+
+    @if (Model != null && Model.Any())    
+    {    
+        foreach (var item in Model)    
+        {    
+            <tr>    
+                <td>    
+                    @Html.DisplayFor(modelItem => item.Id)    
+                </td>    
+                <td>    
+                    @Html.DisplayFor(modelItem => item.Description)    
+                </td>
+                <td>    
+                    @Html.DisplayFor(modelItem => item.IsAccepted)    
+                </td>    
+                <td>    
+                    @Html.DisplayFor(modelItem => item.IsFixed)    
+                </td>
+                <td>    
+                    @Html.DisplayFor(modelItem => item.System.Name)    
+                </td>
+                <td>    
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id })    
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })    
+                </td>    
+            </tr>    
+        }    
+    }    
+    else    
+    {    
+        <td colspan="4" class="text-center"><b>No Data Available . Please Add Data By CLick On Create Button</b></td>    
+    }    
+</table>   
+@if (ViewBag.Message != null)    
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.Message    
+    </div>    
+}
